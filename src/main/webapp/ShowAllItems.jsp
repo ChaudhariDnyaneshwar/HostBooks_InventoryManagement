@@ -26,9 +26,8 @@
     <p class="card-text">Item Unit : ${list.itemUnit }</p>
     <p class="card-text"> Item Unit Price : ${list.itemUnitPrice } </p>
     <p class="card-text"> Item Status : ${list.itemStatus }</p>
-    <p class="card-text">
-       <a href="#" class="btn btn-success">ACCEPT</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="#" class="btn btn-danger">REJECT</a> 
+    <p class="card-text">  
+     <a href="#" class="btn btn-danger">Delete</a> 
 			
     </p>
        

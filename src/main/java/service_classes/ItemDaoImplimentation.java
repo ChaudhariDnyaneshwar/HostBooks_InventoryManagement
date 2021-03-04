@@ -77,4 +77,21 @@ public class ItemDaoImplimentation implements ItemDao{
 			return photo;
 	}
 
+//This method is user for update item information....
+	public int updateItem(Items i) {
+		String query="update item set item_image=?,item_category=?,iten_quantity=?,item_unit=?,item_unitPrice=?,item_status=? where item_name=? ";
+		int count=0;
+		try {
+			byte[] image=i.getItemImage().getBytes();
+			
+			count=jdbctemplate.update(query,new Object[]{image,i.getItemCategory(),i.getItemQuantity(),i.getItemUnit(),i.getItemUnitPrice(),i.getItemStatus(),i.getItemName()});
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
+
 }

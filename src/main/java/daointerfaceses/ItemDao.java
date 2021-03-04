@@ -11,4 +11,5 @@ public interface ItemDao {
 	
 	public List<Items> getAllItem();
 	public Blob getItemImage(int id);
+	public int updateItem(Items i);
 }

@@ -14,6 +14,6 @@
 <body>
            <a href="AddItem.jsp" class="btn btn-primary">Add Item</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<a href="showAllItem" class="btn btn-primary">Show All Item</a> 
-
+            <a href="UpdateItem.jsp" class="btn btn-primary">Update Item</a> 
 </body>
 </html>

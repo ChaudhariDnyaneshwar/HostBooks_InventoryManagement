@@ -94,6 +94,44 @@ public class ItemController
 			InputStream inputstream=new ByteArrayInputStream(photo);
 			IOUtils.copy(inputstream, response.getOutputStream());
 	 }
-	 
 	
+	//This Method is use for update item information..
+	 
+	 @RequestMapping( value = "/updateItem", method = RequestMethod.POST)
+		public ModelAndView updateItem(HttpServletRequest request,@RequestParam("new_image")MultipartFile image)
+		{
+			ModelAndView mv=new ModelAndView();
+			
+			
+			String itemName=request.getParameter("iname");
+			String itemCategory=request.getParameter("new_item_category");
+			int itemQuantity=Integer.parseInt(request.getParameter("new_item_quantity"));
+	        int itemUnit=Integer.parseInt(request.getParameter("new_item_unit"));
+	        int itemUnitPrice=Integer.parseInt(request.getParameter("new_item_unit_price"));
+	        String itemStatus=request.getParameter("new_item_status"); 
+
+	        Items i=new Items();
+	        i.setItemName(itemName);
+	        i.setItemImage(image); 
+	        i.setItemCategory(itemCategory);
+	        i.setItemQuantity(itemQuantity);
+	        i.setItemUnit(itemUnit);
+	        i.setItemUnitPrice(itemUnitPrice);
+	        i.setItemStatus(itemStatus);
+	        
+	        int count=itemdao.updateItem(i);
+	        
+	        if(count>0)
+	        {
+	        	mv.addObject("msg","insertion is successfully done...");
+	        }
+	        else
+	        {
+	        	mv.addObject("msg","insertion is faield ,plase try again....");
+	        }
+	        mv.setViewName("redirect:/showAllItem");
+	        return mv;
+		}
+
+	 
 }
