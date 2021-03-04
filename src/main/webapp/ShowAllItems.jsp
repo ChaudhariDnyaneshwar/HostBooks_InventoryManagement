@@ -27,7 +27,7 @@
     <p class="card-text"> Item Unit Price : ${list.itemUnitPrice } </p>
     <p class="card-text"> Item Status : ${list.itemStatus }</p>
     <p class="card-text">  
-     <a href="#" class="btn btn-danger">Delete</a> 
+     <a href="deleteItem?id=${list.itemId}" class="btn btn-danger">Delete</a> 
 			
     </p>
        

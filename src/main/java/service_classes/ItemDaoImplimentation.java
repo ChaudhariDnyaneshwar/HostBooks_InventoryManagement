@@ -94,4 +94,14 @@ public class ItemDaoImplimentation implements ItemDao{
 		return count;
 	}
 
+//This is method is use for delete item from database...
+	public int deleteItem(int id) {
+		
+		String query="delete from item where itemId=?";
+		
+	 int count=jdbctemplate.update(query,id);
+		
+		return count;
+	}
+
 }

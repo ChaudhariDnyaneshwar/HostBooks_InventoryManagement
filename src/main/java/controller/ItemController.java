@@ -133,5 +133,17 @@ public class ItemController
 	        return mv;
 		}
 
+	 //This method is user for delete the item...
+	 @RequestMapping("/deleteItem")
+	 public ModelAndView deleteItem(@RequestParam("id")int id)
+	 {
+		  ModelAndView mv=new ModelAndView();
+		  
+		  itemdao.deleteItem(id);
+		  mv.setViewName("redirect:/showAllItem");
+		 return mv;
+	 }
+	 
+	 
 	 
 }
