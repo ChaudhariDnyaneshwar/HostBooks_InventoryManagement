@@ -15,7 +15,7 @@ public class UserDaoImplimentation implements UserDao{
 		jdbctemplate=new JdbcTemplate(ds);
 	}
 	
-	
+	//This method is user for insert user data into database...
 	public int createUser(User u) {
 		
 		String query="insert into user values(?,?,?,?,?,?,?,?,?,?)";

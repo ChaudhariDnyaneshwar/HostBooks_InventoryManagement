@@ -15,7 +15,8 @@ public class UserController {
 	
 	@Autowired
 	UserDao ud;
-
+	
+  //This method is use for cret user account
 	@RequestMapping("/creatUser")
 	public ModelAndView insertUser(HttpServletRequest request)
 	{
