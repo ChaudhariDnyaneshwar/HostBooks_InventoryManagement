@@ -14,7 +14,7 @@
 </head>
 
 <body>
-
+<%@ include file="UserHome.jsp" %>
 <div class="container">
   <h2>All Users</h2>     
   <table class="table table-bordered" style="width:1500px;">
@@ -52,10 +52,9 @@
         <td>${list.status}</td>
         
         <td>
-         <a href="#" class="btn btn-success">Update</a> 
-            <a href="#" class="btn btn-danger">Delete</a>
-         
-        
+         <a href="UpdateUser.jsp" class="btn btn-success">Update</a> 
+         <a href="deleteUser?id=${list.uid}" class="btn btn-danger">Delete</a> 
+	
         </td>
         
       </tr>

@@ -74,4 +74,21 @@ public class UserDaoImplimentation implements UserDao{
 		return list;
 	}
 
+	//This method is use for update user from database...
+	
+	public int updateUser(User u) {
+		
+		String query="update user set salutation=?,lname=?,geneder=?,mobile_no=?,mail=?,address=?,roles=?,user_status=? where fname=?";	
+		
+	int a=jdbctemplate.update(query,u.getSalutation(),u.getLname(),u.getGeneder(),u.getMob(),u.getMail(),u.getAddress(),u.getRole(),u.getStatus(),u.getFname());
+		return a;
+	}
+
+	//This method is use for delete from database...
+	public int deleteUser(int id) {
+		String query="delete from user where uid=?";
+		int a=jdbctemplate.update(query,id);
+		return a;
+	}
+
 }

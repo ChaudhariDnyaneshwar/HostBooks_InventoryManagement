@@ -12,7 +12,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<%@ include file="UserHome.jsp" %>
 <div class="row" style="margin-top:150px;color: white;"> 
   <div class="col-md-4"></div>
    <div class="col-md-4">
