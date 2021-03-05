@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -83,6 +84,19 @@ public class UserController {
         	 mv.setViewName("Login");
         	 mv.addObject("msg","Plase enter valid user name and password...");
          }
+		return mv;
+	}
+	
+	
+	//This method is use for getting all user...
+	@RequestMapping("/getAllUser")
+	public ModelAndView getAllUser()
+	{
+		ModelAndView mv=new ModelAndView();
+		List<User> list=user_d.getAllUser();
+		mv.addObject("list",list);
+		mv.setViewName("ShowAllUser");
+		
 		return mv;
 	}
 	

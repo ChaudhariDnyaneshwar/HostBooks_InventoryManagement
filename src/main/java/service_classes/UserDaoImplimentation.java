@@ -47,4 +47,31 @@ public class UserDaoImplimentation implements UserDao{
 		return a;
 	}
 
+	// This method is use for get all users form database...
+	
+	public List<User> getAllUser() {
+		
+		String query="select * from user";
+		
+		RowMapper<User> rowMapper=new RowMapper<User>() {
+
+			public User mapRow(ResultSet req, int row) throws SQLException {
+				User u=new User();
+				u.setUid(req.getInt("uid"));
+				u.setSalutation(req.getString("salutation"));
+				u.setFname(req.getString("fname"));
+				u.setLname(req.getString("lname"));
+				u.setGeneder(req.getString("geneder"));
+				u.setMob(req.getString("mobile_no"));
+				u.setMail(req.getString("mail"));
+				u.setAddress(req.getString("address"));
+				u.setRole(req.getString("roles"));
+				u.setStatus(req.getString("user_status"));
+				return u;
+			}
+		};
+		List<User> list=jdbctemplate.query(query,rowMapper);
+		return list;
+	}
+
 }
