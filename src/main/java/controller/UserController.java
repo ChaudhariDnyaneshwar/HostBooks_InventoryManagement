@@ -1,10 +1,14 @@
 package controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import daointerfaceses.UserDao;
@@ -14,7 +18,7 @@ import pojo_classes.User;
 public class UserController {
 	
 	@Autowired
-	UserDao ud;
+	UserDao user_d;
 	
   //This method is use for cret user account
 	@RequestMapping("/creatUser")
@@ -43,7 +47,7 @@ public class UserController {
 		u.setRole(role);
 		u.setStatus(status);
 	  
-	int count=ud.createUser(u);
+	int count=user_d.createUser(u);
 		
 	if(count>0)
 	{
@@ -56,7 +60,30 @@ public class UserController {
 		
 		mv.setViewName("CreateUserAccount");
 		return mv;
-	
-	
 	}
+	
+	//This method is use for the validation of user....
+	
+	@RequestMapping("/getValidate")
+	public ModelAndView getValidate(@RequestParam("fname")String fname,@RequestParam("mail")String mail,HttpServletResponse response)
+	{
+		ModelAndView mv=new ModelAndView();
+		
+		User u=new User();
+		u.setFname(fname);
+		u.setMail(mail);
+         int count= user_d.getUserValidate(u);
+		
+         if(count>0)
+         {
+        	 mv.setViewName("UserHome");
+         }
+         else
+         {
+        	 mv.setViewName("Login");
+        	 mv.addObject("msg","Plase enter valid user name and password...");
+         }
+		return mv;
+	}
+	
 }
